@@ -26,6 +26,8 @@ namespace Radzen.Blazor
         RadzenDropDown<int> monthDropDown;
         RadzenDropDown<int> yearDropDown;
 
+        [Parameter] public string DiagnosticsName { get; set; }
+
         async Task ToggleAmPm()
         {
             if (Disabled) return;
@@ -962,6 +964,7 @@ namespace Radzen.Blazor
 
         private void ValidationStateChanged(object sender, ValidationStateChangedEventArgs e)
         {
+            Console.WriteLine($"{DiagnosticsName} calls StateHasChanged");
             StateHasChanged();
         }
 
